@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Student - Pilot</string>
+    <string name="login_button">כניסה</string>
+    <string name="enter_password">הזן סיסמא</string>
+    <string name="btn_next">המשך</string>
+    <string name="kindergartens_header">אשכול גנים</string>
+    <string name="schools_header">בתי ספר</string>
+</resources>

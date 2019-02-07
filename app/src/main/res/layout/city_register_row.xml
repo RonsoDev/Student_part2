@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:maxHeight="150dp">
+
+    <ImageView
+        android:id="@+id/info_row_not_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/info_row" />
+
+    <TextView
+        android:id="@+id/city_not_selected_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/info_row_not_selected"
+        app:layout_constraintEnd_toEndOf="@+id/info_row_not_selected"
+        app:layout_constraintStart_toStartOf="@+id/info_row_not_selected"
+        app:layout_constraintTop_toTopOf="@+id/info_row_not_selected" />
+
+    <ImageView
+        android:id="@+id/info_row_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/info_row_selected" />
+
+    <TextView
+        android:id="@+id/city_selected_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/info_row_not_selected"
+        app:layout_constraintEnd_toEndOf="@+id/info_row_not_selected"
+        app:layout_constraintStart_toStartOf="@+id/info_row_not_selected"
+        app:layout_constraintTop_toTopOf="@+id/info_row_not_selected" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
