@@ -80,7 +80,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "StudentRoom{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +

@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class StudentListAdapter extends RecyclerView.Adapter<StudentListAdapter.StudentViewHolder> {
 
-    private Context mContext;
+        private Context mContext;
     private List<Student> mStudentList;
     private Dialog commentDialog;
 

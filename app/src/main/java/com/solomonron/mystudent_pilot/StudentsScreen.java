@@ -43,11 +43,11 @@ public class StudentsScreen extends AppCompatActivity {
         addStudent = findViewById(R.id.add_student_TV);
 
 
-        studentList.add(new Student(1, "MICHAL", "SHUKER"));
-        studentList.add(new Student(2, "RON", "SOLOMON"));
-        studentList.add(new Student(3, "DAVID", "HAMELECH"));
-        studentList.add(new Student(4, "ZUR", "BEN"));
-        studentList.add(new Student(5, "ZIV", "AVRAMOVICH"));
+        studentList.add(new Student(1, "מיכל", "שוקר"));
+        studentList.add(new Student(2, "רון", "סולמון"));
+        studentList.add(new Student(3, "דוד", "המלך"));
+        studentList.add(new Student(4, "צור", "בן"));
+        studentList.add(new Student(5, "זיו", "אברמוביץ'"));
 
 
         addStudent.setOnClickListener(new View.OnClickListener() {

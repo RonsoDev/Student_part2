@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@+id/mainActivity">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.solomonron.mystudent_pilot.MainActivity"
+        android:label="login_page"
+        tools:layout="@layout/login_page" />
+    <activity
+        android:id="@+id/registerCities"
+        android:name="com.solomonron.mystudent_pilot.RegisterCities"
+        android:label="register_cities"
+        tools:layout="@layout/register_cities" />
+    <activity
+        android:id="@+id/registerSchools"
+        android:name="com.solomonron.mystudent_pilot.RegisterSchools"
+        android:label="register_schools"
+        tools:layout="@layout/register_schools" />
+</navigation>

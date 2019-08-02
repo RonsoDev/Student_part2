@@ -1,32 +1,53 @@
-package com.solomonron.mystudent_pilot;
+package com.solomonron.mystudent_pilot.room;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Kita implements Parcelable {
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
-    private int id;
+@Entity
+public class StudentRoom implements Parcelable {
+
+    @PrimaryKey
+    final private int id;
+
+    @ColumnInfo (name = "first_name")
     private String firstName;
 
+    @ColumnInfo (name = "last_name")
     private String lastName;
+
+    @ColumnInfo (name = "kita")
     private String kita;
+
+    @ColumnInfo (name = "school")
     private String school;
+
+    @ColumnInfo (name = "kindergarden")
     private String kindergarden;
+
+    @ColumnInfo (name = "city")
     private String city;
 
+    @ColumnInfo( name = "is_selected")
     private boolean isSelected = false;
 
-
-
-
-
-    public Kita(String city) {
+ /*   public StudentRoom(String city) {
         this.city = city;
+    }*/
+
+    public boolean isSelected() {
+        return isSelected;
     }
 
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
 
-
-    public Kita(int id, String firstName, String lastName, String kita, String school, String kindergarden, String city) {
+    public StudentRoom(int id, String firstName, String lastName, String kita, String school, String kindergarden, String city) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -35,6 +56,25 @@ public class Kita implements Parcelable {
         this.kindergarden = kindergarden;
         this.city = city;
     }
+
+  /*  public StudentRoom(int id, String firstName, String lastName, String kita, String school, String kindergarden, String city, boolean isSelected) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.kita = kita;
+        this.school = school;
+        this.kindergarden = kindergarden;
+        this.city = city;
+        this.isSelected = isSelected;
+    }*/
+
+    public int getId() {
+        return id;
+    }
+
+    /*public void setId(int id) {
+        this.id = id;
+    }*/
 
     public String getFirstName() {
         return firstName;
@@ -76,48 +116,6 @@ public class Kita implements Parcelable {
         this.kindergarden = kindergarden;
     }
 
-    public static Creator getCREATOR() {
-        return CREATOR;
-    }
-
-    public Kita() {
-
-    }
-
-    public Kita(int id, String city) {
-        this.id = id;
-        this.city = city;
-
-    }
-
-    public Kita(int id) {
-        this.id = id;
-    }
-
-    public Kita(int id, boolean isSelected, String city) {
-        this.id = id;
-        this.isSelected = isSelected;
-        this.city = city;
-    }
-
-
-
-    public boolean isSelected() {
-        return isSelected;
-    }
-
-    public void setSelected(boolean selected) {
-        isSelected = selected;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getCity() {
         return city;
     }
@@ -127,8 +125,6 @@ public class Kita implements Parcelable {
     }
 
 
-    //מכאן משתמשים באינטרפייס PARCELABLE על מנת להעביר אריי ליסטים לאקטיבי חדש באינטנט
-
     @Override
     public int describeContents() {
         return 0;
@@ -137,25 +133,19 @@ public class Kita implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
 
-        dest.writeInt(this.id);
-        dest.writeString(this.city);
-
-
     }
 
-    public Kita(Parcel in) {
+    public StudentRoom(Parcel in) {
         this.id = in.readInt();
         this.city = in.readString();
     }
-
-
     public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
-        public Kita createFromParcel(Parcel in) {
-            return new Kita(in);
+        public StudentRoom createFromParcel(Parcel in) {
+            return new StudentRoom(in);
         }
 
-        public Kita[] newArray(int size) {
-            return new Kita[size];
+        public StudentRoom[] newArray(int size) {
+            return new StudentRoom[size];
         }
     };
 }

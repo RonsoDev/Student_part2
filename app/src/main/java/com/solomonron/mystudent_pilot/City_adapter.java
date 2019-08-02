@@ -4,39 +4,42 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.solomonron.mystudent_pilot.room.StudentRoom;
+
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-public class Kita_adapter extends RecyclerView.Adapter<Kita_adapter.KitaViewHolder> {
+public class City_adapter extends RecyclerView.Adapter<City_adapter.KitaViewHolder> {
 
-    private Context mContext;
+    private final List<Kita> citiesList;
+/*    private Context mContext;
     private List<Kita> mKitaList;
-    private List<Kita> mKitaListfull;
+    private List<Kita> mKitaListfull;*/
 
 
-    public Kita_adapter(Context context, List<Kita> kitaList) {
-        this.mContext = context;
-        this.mKitaList = kitaList;
 
 
+
+    public City_adapter(List<Kita> citiesList) {
+        this.citiesList = citiesList;
     }
 
-    public Kita_adapter(List<Kita> kitaList) {
-        this.mKitaList = kitaList;
+    @NonNull
+    @Override
+    public KitaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        //mKitaListfull = new ArrayList<>(mKitaList);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.city_register_row, parent, false);
 
+        //KitaViewHolder holder = new KitaViewHolder(view);
+
+        return new KitaViewHolder(view);
     }
-
 
     class KitaViewHolder extends RecyclerView.ViewHolder {
 
@@ -58,22 +61,17 @@ public class Kita_adapter extends RecyclerView.Adapter<Kita_adapter.KitaViewHold
 
 
 
-    @NonNull
-    @Override
-    public KitaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.city_register_row, parent, false);
-
-        //KitaViewHolder holder = new KitaViewHolder(view);
-
-        return new KitaViewHolder(view);
-    }
 
     @Override
-    public void onBindViewHolder(@NonNull final KitaViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final KitaViewHolder holder, final int position) {
 
 
-        Kita kita = mKitaList.get(position);
+
+
+        final Kita kita = citiesList.get(position);
+
+
 
         holder.not_selected_tv.setText(kita.getCity());
         holder.selected_tv.setText(kita.getCity());
@@ -82,11 +80,17 @@ public class Kita_adapter extends RecyclerView.Adapter<Kita_adapter.KitaViewHold
             @Override
             public void onClick(View v) {
 
-
+                kita.setSelected(!kita.isSelected());
                 holder.not_selected_row.setVisibility(View.INVISIBLE);
                 holder.not_selected_tv.setVisibility(View.INVISIBLE);
                 holder.selected_row.setVisibility(View.VISIBLE);
                 holder.selected_tv.setVisibility(View.VISIBLE);
+
+
+
+
+
+
 
             }
         });
@@ -94,10 +98,16 @@ public class Kita_adapter extends RecyclerView.Adapter<Kita_adapter.KitaViewHold
         holder.selected_row.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                kita.setSelected(!kita.isSelected());
                 holder.not_selected_row.setVisibility(View.VISIBLE);
                 holder.not_selected_tv.setVisibility(View.VISIBLE);
                 holder.selected_row.setVisibility(View.INVISIBLE);
                 holder.selected_tv.setVisibility(View.INVISIBLE);
+
+
+
+
 
             }
         });
@@ -105,18 +115,10 @@ public class Kita_adapter extends RecyclerView.Adapter<Kita_adapter.KitaViewHold
     }
 
 
-  /*  @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public int getItemViewType(int position) {
-        return position;
-    }*/
     @Override
     public int getItemCount() {
-        return mKitaList.size();
+        //return mKitaList.size();
+        return citiesList.size();
     }
 
     @Override
@@ -125,7 +127,9 @@ public class Kita_adapter extends RecyclerView.Adapter<Kita_adapter.KitaViewHold
 
     }
 
-    public void updateList(List<Kita> newList) {
+
+    //קונסטרקטור לחיפוש ערים
+   /* public void updateList(List<Kita> newList) {
 
         mKitaList = newList;
        // mKitaListfull = newList;
@@ -133,7 +137,7 @@ public class Kita_adapter extends RecyclerView.Adapter<Kita_adapter.KitaViewHold
 
         notifyDataSetChanged();
 
-    }
+    }*/
 
 
 }
